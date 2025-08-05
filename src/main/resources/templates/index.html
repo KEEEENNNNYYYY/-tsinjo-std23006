@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tsinjo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .form-container {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1a252f;
+        }
+        .history {
+            margin-top: 30px;
+        }
+        .history-item {
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 3px solid #2c3e50;
+        }
+        .donation {
+            color: green;
+        }
+        .help {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<h1>Tsinjo</h1>
+
+<div class="form-container">
+    <form action="#" th:action="@{/donations}" method="post">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="fullName">Nom complet</label>
+            <input type="text" id="fullName" name="fullName" required>
+        </div>
+        <div class="form-group">
+            <label for="paymentMethod">Moyen de paiement</label>
+            <select id="paymentMethod" name="paymentMethod" required>
+                <option value="">-- Sélectionnez --</option>
+                <option value="Orange Money">Orange Money</option>
+                <option value="MVola">MVola</option>
+                <option value="Airtel Money">Airtel Money</option>
+                <option value="Visa">Visa</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="amount">Montant</label>
+            <input type="number" id="amount" name="amount" required>
+        </div>
+        <button type="submit">Donner !</button>
+    </form>
+</div>
+
+<div class="history">
+    <h2>Historique</h2>
+
+    <div class="history-item donation">
+        + 50 000Ar (confirmé, Orange Money).<br>
+        11/08/2025. Par Lou Andria (lou@hei.school).
+    </div>
+
+    <div class="history-item help">
+        - 5 000 000Ar. Pour Koto Kely (koto@kely.mg).<br>
+        Koto a été renversé par une moto et nécessite une chirurgie.
+    </div>
+
+    <div class="history-item donation">
+        + 1 000Ar (en vérification, Orange Money).<br>
+        29/07/2025. Par Minago Rasca (minago@rasoa.mg).
+    </div>
+</div>
+</body>
+</html>
