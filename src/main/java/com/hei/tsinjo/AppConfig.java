@@ -7,13 +7,13 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AppConfig {
-    @Bean
-    public PaymentService paymentService() {
-        return new PaymentService();
-    }
+  @Bean
+  public PaymentService paymentService() {
+    return new PaymentService();
+  }
 
-    @Bean
-    public InMemoryPaymentRepository paymentRepository() {
-        return new InMemoryPaymentRepository();
-    }
+  @Bean
+  public InMemoryPaymentRepository paymentRepository() {
+    return new InMemoryPaymentRepository();
+  }
 }

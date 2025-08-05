@@ -8,10 +8,10 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class Tsinjo {
-    private Long balance;
+  private Long balance;
 
-    public Long help(Long amount) {
-        this.balance -= amount;
-        return this.balance;
-    }
+  public Long help(Long amount) {
+    this.balance -= amount;
+    return this.balance;
+  }
 }

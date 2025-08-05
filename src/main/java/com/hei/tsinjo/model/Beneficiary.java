@@ -8,8 +8,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class Beneficiary {
-    private String id;
-    private Long balance;
-    private String name;
-    private String email;
+  private String id;
+  private Long balance;
+  private String name;
+  private String email;
 }
