@@ -1,6 +1,6 @@
 package com.hei.tsinjo.model;
 
-public enum PayementStatus {
+public enum PaymentStatus {
     VERIFYING,
     SUCCEEDED,
     FAILED

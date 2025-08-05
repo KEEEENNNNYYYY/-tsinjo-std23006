@@ -62,53 +62,43 @@
     </style>
 </head>
 <body>
-<h1>Tsinjo</h1>
-
-<div class="form-container">
-    <form action="#" th:action="@{/donations}" method="post">
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label for="fullName">Nom complet</label>
-            <input type="text" id="fullName" name="fullName" required>
-        </div>
-        <div class="form-group">
-            <label for="paymentMethod">Moyen de paiement</label>
-            <select id="paymentMethod" name="paymentMethod" required>
-                <option value="">-- Sélectionnez --</option>
-                <option value="Orange Money">Orange Money</option>
-                <option value="MVola">MVola</option>
-                <option value="Airtel Money">Airtel Money</option>
-                <option value="Visa">Visa</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="amount">Montant</label>
-            <input type="number" id="amount" name="amount" required>
-        </div>
-        <button type="submit">Donner !</button>
-    </form>
-</div>
-
-<div class="history">
-    <h2>Historique</h2>
-
-    <div class="history-item donation">
-        + 50 000Ar (confirmé, Orange Money).<br>
-        11/08/2025. Par Lou Andria (lou@hei.school).
+<h1>Faire un don</h1>
+<form th:action="@{/donate}" th:object="${newPayment}" method="post">
+    <div>
+        <label>Montant:</label>
+        <input type="number" th:field="*{amount}" step="0.01" required>
     </div>
-
-    <div class="history-item help">
-        - 5 000 000Ar. Pour Koto Kely (koto@kely.mg).<br>
-        Koto a été renversé par une moto et nécessite une chirurgie.
+    <div>
+        <label>Méthode de paiement:</label>
+        <input type="text" th:field="*{method}" required>
     </div>
-
-    <div class="history-item donation">
-        + 1 000Ar (en vérification, Orange Money).<br>
-        29/07/2025. Par Minago Rasca (minago@rasoa.mg).
+    <div>
+        <label>Destinataire:</label>
+        <input type="text" th:field="*{receiver}" required>
     </div>
-</div>
+    <button type="submit">Envoyer</button>
+</form>
+
+<h2>Historique des paiements</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Date</th>
+        <th>Montant</th>
+        <th>Méthode</th>
+        <th>Destinataire</th>
+        <th>Statut</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="payment : ${payments}">
+        <td th:text="${#temporals.format(payment.paymentDate)}"></td>
+        <td th:text="${payment.amount}"></td>
+        <td th:text="${payment.method}"></td>
+        <td th:text="${payment.receiver}"></td>
+        <td th:text="${payment.status}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

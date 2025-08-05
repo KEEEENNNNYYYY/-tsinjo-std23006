@@ -10,7 +10,11 @@ import java.sql.SQLException;
 @Setter
 @AllArgsConstructor
 public class Donor {
+    private String id;
     private Long balance;
+    private String name;
+    private String email;
+
 
     public Long doDonation(Long amount) {
         this.balance -= amount;
